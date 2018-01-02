@@ -5,6 +5,7 @@
 RESTful이란, 주소창(url)을 통해서 자원(리소스)과 행위(HTTP Verb)를 표현하는 것.
 
 [가장 깔끔한 설명](http://meetup.toast.com/posts/92)
+
 [routes](#### 1. routes.rb)
 
 #### 0. 기본 사항
