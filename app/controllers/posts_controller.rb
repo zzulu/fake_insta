@@ -12,10 +12,14 @@ class PostsController < ApplicationController
   end
 
   def create
-    Post.create(
-      title: params[:title],
-      content: params[:content]
-    )
+    Post.create(post_params)
+    # post = Post.new
+    # post.title = params[:title]
+    # post.content = params[:content]
+    # post.save
+    puts "************************"
+    puts post_params.inspect
+    puts "************************"
     redirect_to '/'
   end
   # Read
@@ -25,7 +29,7 @@ class PostsController < ApplicationController
   # update
   def update
     # @post = Post.find(params[:id])
-    @post.update(title: params[:title], content: params[:content])
+    @post.update(post_params)
     redirect_to "/posts/#{@post.id}"
   end
 
@@ -46,5 +50,11 @@ class PostsController < ApplicationController
   # 이외의 상속받은 클래스나 객체 인스턴스에서도 접근이 불가능했음.
   def set_post
     @post = Post.find(params[:id])
+  end
+
+# strong parameter
+  def post_params
+    params.require(:post).permit(:title, :content)
+    #   "post"=>{"title"=>"asdf", "content"=>"q1111"}
   end
 end
