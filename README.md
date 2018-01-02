@@ -6,7 +6,7 @@ RESTful이란, 주소창(url)을 통해서 자원(리소스)과 행위(HTTP Verb
 
 [가장 깔끔한 설명](http://meetup.toast.com/posts/92)
 
-[routes](#### 1. routes.rb)
+[routes](#1. routes.rb)
 
 #### 0. 기본 사항
 
@@ -14,7 +14,7 @@ RESTful이란, 주소창(url)을 통해서 자원(리소스)과 행위(HTTP Verb
  - C/R/U/D 마다 **commit** 하기
  - `posts` 컨트롤러와 `post` 모델만!
 
-#### 1. routes.rb
+# 1. routes.rb
 
 ```ruby
   # index
