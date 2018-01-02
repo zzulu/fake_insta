@@ -77,7 +77,7 @@ $ rails g scaffold post title:string content:text
 
 ### 3. [파일업로드](https://github.com/carrierwaveuploader/carrierwave)
 
-  1. gemfile
+  1. `gemfile`
 
   ```ruby
   gem carrierwave
@@ -98,15 +98,15 @@ $ rails g scaffold post title:string content:text
 
     * `post.rb`
 
-    ```ruby
-    mount_uploader :컬럼명, AvatarUploader
-    ```
+      ```ruby
+      mount_uploader :컬럼명, AvatarUploader
+      ```
 
     * `posts_controller.rb`
 
-    ```ruby
-    # strong parameter에 받아주거나, create 단계에서 사진 받을 준비
-    ```
+      ```ruby
+      # strong parameter에 받아주거나, create 단계에서 사진 받을 준비
+      ```
 
   4. `new.html.erb`
 
