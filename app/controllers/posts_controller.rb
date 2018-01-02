@@ -1,7 +1,7 @@
 class PostsController < ApplicationController
   # before_action은 하나의 액션을 실행하기 전에 해당 메소드를 실행.
   # 컨트롤러.. filter
-  before_action :set_post, only: [:show, :edit, :update, :destory]
+  before_action :set_post, only: [:show, :edit, :update, :destroy]
 
   def index
     # 모든 것을 보여주는 곳...
@@ -34,7 +34,7 @@ class PostsController < ApplicationController
   end
   # delete
   def destroy
-    @post.destory
+    @post.destroy
     redirect_to '/'
     # @post = Post.find(params[:id])
   end
