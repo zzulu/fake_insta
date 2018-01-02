@@ -4,6 +4,7 @@
 <% @posts.each do |post| %>
 <p><%=post.title%></p>
 <p><%=post.content%></p>
+<img src="<%=post.postimage%>">
 <p><a href="/posts/<%=post.id%>">보기</a></p>
 <hr />
 <% end %>
