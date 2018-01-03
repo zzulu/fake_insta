@@ -5,7 +5,11 @@ class PostsController < ApplicationController
 
   def index
     # 모든 것을 보여주는 곳...
-    @posts = Post.all
+    if params["post"].nil?
+      @posts = Post.all
+    else
+      @posts = Post.where("title LIKE ?", "%#{params["post"]["q"]}%")
+    end
   end
 
   def new
@@ -54,7 +58,7 @@ class PostsController < ApplicationController
 
 # strong parameter
   def post_params
-    params.require(:post).permit(:title, :content, :postimage)
+    params.require(:post).permit(:title, :content, :postimage, :q)
     #   "post"=>{"title"=>"asdf", "content"=>"q1111"}
   end
 end

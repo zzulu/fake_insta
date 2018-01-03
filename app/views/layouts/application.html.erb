@@ -9,6 +9,10 @@
 </head>
 <body>
   <%= render 'layouts/navbar' %>
+  <form action="/">
+    <input type="text" name="post[q]" />
+    <input type="submit" />
+  </form>
   <div class="container">
     <%= yield %>
   </div>
