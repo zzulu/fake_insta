@@ -213,12 +213,12 @@ $ rake db:migrate
 * devise controller 커스터마이징 하기
 
   ```console
-  $ rails g devise:controller users
+  $ rails g devise:controllers users
   ```
 
   `users/` 많은 컨트롤러가 생김..
 
-  **반드시 `routes.rb` 수정 **
+  **반드시 `routes.rb` 수정**
 
   ```ruby
   devise_for :users, controllers: {

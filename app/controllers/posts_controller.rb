@@ -4,6 +4,8 @@ class PostsController < ApplicationController
   before_action :set_post, only: [:show, :edit, :update, :destroy]
   # only, except.. 없으면 모든 action
   before_action :authenticate_user!, except: :index
+  before_action :is_owner?, only: [:edit, :update, :destroy]
+  
   def index
     # 모든 것을 보여주는 곳...
       @posts = Post.where("title LIKE ?", "%#{params["q"]}%")
@@ -56,5 +58,11 @@ class PostsController < ApplicationController
   def post_params
     params.require(:post).permit(:title, :content, :postimage)
       # "post"=>{"title"=>"asdf", "content"=>"q1111"}
+  end
+
+  def is_owner?
+    # 게시글의 주인, 로그인한 사람이 같지 않으면
+    redirect_to '/' and return unless @post.user_id == current_user.id
+    # redirect_to '/'
   end
 end
