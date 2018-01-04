@@ -9,24 +9,11 @@
 </head>
 <body>
   <%= render 'layouts/navbar' %>
-  <form action="/">
-    <input type="text" name="q" />
-    <input type="submit" />
-  </form>
-  <p class="notice"><%= notice %></p>
-  <p class="alert"><%= alert %></p>
-  <% if user_signed_in? %>
-  <li>
-  <%= current_user.email %>님
-  <%= link_to('Logout', destroy_user_session_path, method: :delete) %>
-  </li>
-  <% else %>
-  <li>
-  <%= link_to('Login', new_user_session_path)  %>
-  <%= link_to('회원가입', new_user_registration_path) %>
-  </li>
-  <% end %>
+  <%= render 'layouts/flash' %>
   <div class="container">
+    <div class="align-center">
+      <%= render 'layouts/search_form' %>
+    </div>
     <%= yield %>
   </div>
 <script defer src="https://use.fontawesome.com/releases/v5.0.2/js/all.js"></script>

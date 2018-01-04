@@ -5,7 +5,9 @@ class PostsController < ApplicationController
   # only, except.. 없으면 모든 action
   before_action :authenticate_user!, except: :index
   # before_action :is_owner?, only: [:edit, :update, :destroy]
-  load_and_authorize_resource param_method: :post_params
+  load_and_authorize_resource except: :edit, param_method: :post_params
+
+
 
   def index
     # 모든 것을 보여주는 곳...
