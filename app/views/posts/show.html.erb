@@ -2,8 +2,9 @@
   <figure class="figure">
     <img src="<%= @post.postimage%>" class="figure-img img-fluid rounded" style="height: 70vh;">
     <figcaption class="figure-caption">
-      <p><%= @post.title %></p>
-      <p><%= @post.content %></p>
+      <h5><%= @post.title %></h5>
+      <h6 class="text-right">글쓴이 : <%= @post.user.username %></h6>
+      <h6><%= @post.content %></h6>
     </figcaption>
   </figure>
 </div>
