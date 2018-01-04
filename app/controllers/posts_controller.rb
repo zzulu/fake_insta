@@ -14,7 +14,9 @@ class PostsController < ApplicationController
   end
 
   def create
-    Post.create(post_params)
+    current_user.posts.create(post_params)
+    # current_user => User의 인스턴스
+    # current_user.posts => Post의 인스턴스
     redirect_to '/'
   end
 
