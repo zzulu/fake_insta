@@ -1,5 +1,8 @@
 source 'https://rubygems.org'
 
+# 회원 권한 기능
+gem 'cancancan', '~> 2.0'
+
 # 회원가입 기능
 gem 'devise'
 

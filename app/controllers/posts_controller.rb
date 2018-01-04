@@ -4,8 +4,8 @@ class PostsController < ApplicationController
   before_action :set_post, only: [:show, :edit, :update, :destroy]
   # only, except.. 없으면 모든 action
   before_action :authenticate_user!, except: :index
-  before_action :is_owner?, only: [:edit, :update, :destroy]
-  
+  # before_action :is_owner?, only: [:edit, :update, :destroy]
+
   def index
     # 모든 것을 보여주는 곳...
       @posts = Post.where("title LIKE ?", "%#{params["q"]}%")
@@ -25,21 +25,25 @@ class PostsController < ApplicationController
   # Read
   def show
     # @post = Post.find(params[:id])
+    # authorize! :read, @post
   end
 
   # update
   def update
     # @post = Post.find(params[:id])
+    authorize! :update, @post
     @post.update(post_params)
     redirect_to "/posts/#{@post.id}"
   end
 
   def edit
+    authorize! :update, @post
     # @post = Post.find(params[:id])
   end
 
   # delete
   def destroy
+    authorize! :destroy, @post
     @post.destroy
     redirect_to '/'
     # @post = Post.find(params[:id])
