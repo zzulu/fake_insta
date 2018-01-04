@@ -1,8 +1,17 @@
 source 'https://rubygems.org'
 
-gem 'mini_magick'
+# 회원가입 기능
+gem 'devise'
+
+# pagenation
 gem 'kaminari'
+
+# 파일업로더
 gem 'carrierwave', '~> 1.0'
+
+# 이미지편집
+gem 'mini_magick'
+
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.9'
 # Use sqlite3 as the database for Active Record

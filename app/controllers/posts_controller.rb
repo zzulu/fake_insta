@@ -2,30 +2,27 @@ class PostsController < ApplicationController
   # before_action은 하나의 액션을 실행하기 전에 해당 메소드를 실행.
   # 컨트롤러.. filter
   before_action :set_post, only: [:show, :edit, :update, :destroy]
-
+  # only, except.. 없으면 모든 action
+  before_action :authenticate_user!, except: :index
   def index
     # 모든 것을 보여주는 곳...
-    @posts = Post.where("title LIKE ?", "%#{params["q"]}%")
+      @posts = Post.where("title LIKE ?", "%#{params["q"]}%")
   end
 
+  # Create
   def new
   end
 
   def create
     Post.create(post_params)
-    # post = Post.new
-    # post.title = params[:title]
-    # post.content = params[:content]
-    # post.save
-    puts "************************"
-    puts post_params.inspect
-    puts "************************"
     redirect_to '/'
   end
+
   # Read
   def show
     # @post = Post.find(params[:id])
   end
+
   # update
   def update
     # @post = Post.find(params[:id])
@@ -36,6 +33,7 @@ class PostsController < ApplicationController
   def edit
     # @post = Post.find(params[:id])
   end
+
   # delete
   def destroy
     @post.destroy
@@ -55,6 +53,6 @@ class PostsController < ApplicationController
 # strong parameter
   def post_params
     params.require(:post).permit(:title, :content, :postimage)
-    #   "post"=>{"title"=>"asdf", "content"=>"q1111"}
+      # "post"=>{"title"=>"asdf", "content"=>"q1111"}
   end
 end
