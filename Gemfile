@@ -1,6 +1,11 @@
 source 'https://rubygems.org'
 
+# figaro
 gem 'figaro'
+
+# s3
+gem 'fog'
+
 # 회원 권한 기능
 gem 'cancancan', '~> 2.0'
 
